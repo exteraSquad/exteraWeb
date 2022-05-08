@@ -73,6 +73,11 @@ class InputPasswordDialog extends React.Component {
 
         const errorMessage = this.getErrorMessage(error);
 
+        if (errorMessage === 'PASSWORD_HASH_INVALID') {
+            this.setState({ error: { code: 'InvalidPassword' } });
+            return
+        }
+
         return (
             <Dialog
                 open={true}
