@@ -10,7 +10,7 @@
 ### Запуск
 1. **Получите API ключи.**
 
-[Подробнее, где их получить](https://github.com/telegramdesktop/tdesktop/blob/dev/docs/api_credentials.md) for details.
+[Подробнее, где их получить](https://github.com/telegramdesktop/tdesktop/blob/dev/docs/api_credentials.md)
 
 2. **Вставьте их в .env файл**
 
