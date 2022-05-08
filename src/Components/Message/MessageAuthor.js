@@ -124,12 +124,11 @@ class MessageAuthor extends React.Component {
             return;
         }
     };
-
     render() {
-        const { sender, openUser, openChat, forwardInfo, t } = this.props;
+        try {
+            const { sender, openUser, openChat, forwardInfo, t } = this.props;
         let { fullName } = this.state;
-
-        let { chat_id: chatId, user_id: userId } = sender;
+        let { chat_id: chatId, user_id: userId } = sender;  
 
         if (UserStore.getMyId() === sender.user_id && forwardInfo) {
             switch (forwardInfo.origin['@type']) {
@@ -181,6 +180,9 @@ class MessageAuthor extends React.Component {
         ) : (
             <>{fullName}</>
         );
+        } catch {
+            return null
+        }
     }
 }
 

@@ -1,11 +1,11 @@
-# exteraWeb
+# Telegram Web App
 
 ### Interface
-![Sample screenshot](https://x0.at/RegY.png)
+![Sample screenshot](/src/Assets/Screenshots/1x_Group.png)
 
 ### Technical details
 
-The app is based on the ReactJS JavaScript framework and TDLib (Telegram Database library) compiled to WebAssembly. Try it [here](https://kirillsaint.github.io/exteraweb-build/).
+The app is based on the ReactJS JavaScript framework and TDLib (Telegram Database library) compiled to WebAssembly. Try it [here](https://evgeny-nadymov.github.io/telegram-react/).
 
 ### Running locally
 1. **Obtaining Telegram api keys.**
