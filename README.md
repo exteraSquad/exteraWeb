@@ -26,7 +26,7 @@ npm install
 ```
 Все файлы библиотеки TDLib установятся в node_modules/tdweb/dist/. 
 
-5. **Самостоятельно скопируйте файлы TDLib в /publix.**
+5. **Самостоятельно скопируйте файлы TDLib в /public.**
 
 ```bash
 cp node_modules/tdweb/dist/* public/
