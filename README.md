@@ -22,7 +22,7 @@
 4. **Установите зависимости.**
 
 ```bash
-npm instal
+npm install
 ```
 Все файлы библиотеки TDLib установятся в node_modules/tdweb/dist/. 
 
