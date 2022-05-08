@@ -173,7 +173,7 @@ class Password extends React.Component {
                     {passwordHint && <FormHelperText id='password-hint-text'>{passwordHint}</FormHelperText>}
                     {error && (
                         <FormHelperText id='password-error-text' error>
-                            {error}
+                            {t('InvalidPassword')}
                         </FormHelperText>
                     )}
                 </FormControl>
