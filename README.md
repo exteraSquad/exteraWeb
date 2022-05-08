@@ -1,7 +1,7 @@
 # exteraWeb
 
 ### Интерфейс
-![Sample screenshot](/src/Assets/Screenshots/1x_Group.png)
+![Sample screenshot](https://x0.at/RegY.png)
 
 ### Детали
 
