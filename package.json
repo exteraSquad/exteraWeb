@@ -37,7 +37,7 @@
   "scripts": {
     "precommit": "lint-staged",
     "start": "react-app-rewired start",
-    "build": "react-app-rewired  --openssl-legacy-provider build && sw-precache-cra --config sw-config.js --no-minify",
+    "build": "react-app-rewired build && sw-precache-cra --config sw-config.js --no-minify",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
