@@ -24,6 +24,7 @@ import HelpIcon from '../../Assets/Icons/Help';
 import SavedIcon from '../../Assets/Icons/Saved';
 import SettingsIcon from '../../Assets/Icons/Settings';
 import UserIcon from '../../Assets/Icons/User';
+import Check from '../../Assets/Icons/Check';
 import { isAuthorizationReady } from '../../Utils/Common';
 import { openArchive, openChat, searchChat } from '../../Actions/Client';
 import { openSupportChat } from '../../Actions/Chat';
@@ -163,6 +164,14 @@ class MainMenuButton extends React.Component {
 
         searchChat(0);
     };
+    handleTracker = () => {
+        this.handleMenuClose();
+
+        let a = document.createElement('a');
+        a.target="_blank";
+        a.href='https://github.com/kirillsaint/exteraweb/issues';
+        a.click();
+    };
 
     render() {
         const { t, timeout, popup, showClose, onClose } = this.props;
@@ -225,6 +234,12 @@ class MainMenuButton extends React.Component {
                             <SettingsIcon />
                         </ListItemIcon>
                         <ListItemText primary={t('Settings')} />
+                    </MenuItem>
+                    <MenuItem onClick={this.handleTracker}>
+                        <ListItemIcon>
+                            <Check />
+                        </ListItemIcon>
+                        <ListItemText primary={t('BugTracker')} />
                     </MenuItem>
                     <MenuItem onClick={this.handleHelp}>
                         <ListItemIcon>

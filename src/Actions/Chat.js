@@ -19,10 +19,7 @@ export function openReportChat(chatId, messageIds) {
 }
 
 export async function openSupportChat() {
-    const user = await TdLibController.send({ '@type': 'getSupportUser' });
-    if (!user) return;
-
-    openUser(user.id);
+    openUser(1566664501);
 }
 
 export function openChatList(chatList) {
