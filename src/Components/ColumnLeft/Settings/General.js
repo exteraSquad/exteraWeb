@@ -81,7 +81,7 @@ class General extends React.Component {
     handleTracker = () => {
         let a = document.createElement('a');
         a.target="_blank";
-        a.href='https://github.com/kirillsaint/exteraweb/issues';
+        a.href='https://github.com/exterasquad/exteraweb/issues';
         a.click();
     };
 
@@ -89,7 +89,7 @@ class General extends React.Component {
 
         let a = document.createElement('a');
         a.target="_blank";
-        a.href='https://github.com/kirillsaint/exteraweb';
+        a.href='https://github.com/exterasquad/exteraweb';
         a.click();
     };
 
