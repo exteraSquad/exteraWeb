@@ -7,6 +7,7 @@
 
 import ChatStore from '../Stores/ChatStore';
 import LStore from '../Stores/LocalizationStore';
+import { getBasicGroupId } from './Chat';
 
 export function getBasicGroupStatus(basicGroup, chatId) {
     if (!basicGroup) return null;
@@ -33,4 +34,14 @@ export function getBasicGroupStatus(basicGroup, chatId) {
     }
 
     return LStore.formatPluralString('Members', count);;
+}
+
+export function isBasicGroup(chatId) {
+    const chat = ChatStore.get(chatId);
+    if (!chat) return false;
+
+    const basicgroupId = getBasicGroupId(chatId);
+    if (!basicgroupId) return false;
+
+    return true;
 }
