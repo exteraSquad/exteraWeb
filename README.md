@@ -14,7 +14,7 @@
 
 2. **Вставьте их в .env файл**
 
-Самостоятельно вставьте их на место REACT_TELEGRAM_API_ID и REACT_TELEGRAM_API_HASH в .env файле.
+Самостоятельно вставьте их на место REACT_APP_TELEGRAM_API_ID и REACT_APP_TELEGRAM_API_HASH в .env файле.
 
 3. **Установите node.js & npm**
 Вероятно, вам понадобится [nvm](https://github.com/nvm-sh/nvm).
