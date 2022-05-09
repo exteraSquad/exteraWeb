@@ -241,33 +241,37 @@ class DocumentAlbum extends React.Component {
         // }
 
         let tile = null;
-        if (showTail) {
-            if (isMeChat(chatId) && forward_info) {
-                switch (forward_info.origin['@type']) {
-                    case 'messageForwardOriginHiddenUser': {
-                        tile = <UserTile small firstName={forward_info.origin.sender_name} onSelect={this.handleSelectUser} />;
-                        break;
+        try {
+            if (showTail) {
+                if (isMeChat(chatId) && forward_info) {
+                    switch (forward_info.origin['@type']) {
+                        case 'messageForwardOriginHiddenUser': {
+                            tile = <UserTile small firstName={forward_info.origin.sender_name} onSelect={this.handleSelectUser} />;
+                            break;
+                        }
+                        case 'messageForwardOriginUser': {
+                            tile = <UserTile small userId={forward_info.origin.sender_user_id} onSelect={this.handleSelectUser} />;
+                            break;
+                        }
+                        case 'messageForwardOriginChannel': {
+                            tile = <ChatTile small chatId={forward_info.origin.chat_id} onSelect={this.handleSelectChat} />;
+                            break;
+                        }
                     }
-                    case 'messageForwardOriginUser': {
-                        tile = <UserTile small userId={forward_info.origin.sender_user_id} onSelect={this.handleSelectUser} />;
-                        break;
-                    }
-                    case 'messageForwardOriginChannel': {
-                        tile = <ChatTile small chatId={forward_info.origin.chat_id} onSelect={this.handleSelectChat} />;
-                        break;
-                    }
+                } else if (isPrivate) {
+                    tile = <EmptyTile small />
+                } else if (isChannel) {
+                    tile = <EmptyTile small />
+                } else if (is_outgoing) {
+                    tile = <EmptyTile small />
+                } else if (sender.user_id) {
+                    tile = <UserTile small userId={sender.user_id} onSelect={this.handleSelectUser} />;
+                } else {
+                    tile = <ChatTile small chatId={chatId} onSelect={this.handleSelectChat} />;
                 }
-            } else if (isPrivate) {
-                tile = <EmptyTile small />
-            } else if (isChannel) {
-                tile = <EmptyTile small />
-            } else if (is_outgoing) {
-                tile = <EmptyTile small />
-            } else if (sender.user_id) {
-                tile = <UserTile small userId={sender.user_id} onSelect={this.handleSelectUser} />;
-            } else {
-                tile = <ChatTile small chatId={chatId} onSelect={this.handleSelectChat} />;
             }
+        } catch(e) {
+            tile = <EmptyTile small />
         }
 
         const style = {  };
