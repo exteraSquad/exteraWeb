@@ -13,6 +13,7 @@ import { StylesProvider } from '@material-ui/core/styles';
 import { getBadgeSelectedColor } from './Utils/Color';
 import { getDisplayName } from './Utils/HOC';
 import AppStore from './Stores/ApplicationStore';
+import red from '@material-ui/core/colors/red';
 
 function updateLightTheme(theme) {
     // const root = document.querySelector(':root');
@@ -335,7 +336,7 @@ function withTheme(WrappedComponent) {
         constructor(props) {
             super(props);
 
-            let { type, primary } = { type: 'light', primary: { main: '#50A2E9' } };
+            let { type, primary } = { type: 'light', primary: { main: red['500'] } };
             try {
                 const themeOptions = JSON.parse(localStorage.getItem('themeOptions'));
                 if (themeOptions) {
