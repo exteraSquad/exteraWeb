@@ -20,6 +20,7 @@ import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 import HeadsetIcon from '@material-ui/icons/Headset';
 import IconButton from '@material-ui/core/IconButton';
 import InsertDriveFileIcon from '../../Assets/Icons/Document2';
+import IDIcon from '../../Assets/Icons/IDIcon';
 import InsertLinkIcon from '@material-ui/icons/InsertLink';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -63,6 +64,8 @@ import UserStore from '../../Stores/UserStore';
 import TdLibController from '../../Controllers/TdLibController';
 import './MoreListItem.css';
 import './ChatDetails.css';
+import FingerprintRoundedIcon from '@material-ui/icons/FingerprintRounded';
+
 
 class ChatDetails extends React.Component {
     constructor(props) {
@@ -483,6 +486,7 @@ class ChatDetails extends React.Component {
                                         />
                                     </ListItem>
                                 )}
+                                
                                 {username && (
                                     <ListItem button className='list-item-rounded' alignItems='flex-start' onClick={this.handleUsernameHint}>
                                         <ListItemIcon>
@@ -495,6 +499,18 @@ class ChatDetails extends React.Component {
                                                 </Typography>
                                             }
                                             secondary={isPrivateChat(chatId) ? t('Username') : t('InviteLink')}
+                                        />
+                                    </ListItem>
+                                )}
+                                {chatId && (
+                                    <ListItem className='list-item-rounded' alignItems='flex-start'>
+                                        <ListItemIcon>
+                                            <FingerprintRoundedIcon />
+                                        </ListItemIcon>
+                                        <ListItemText
+                                            primary={chatId}
+                                            secondary={isPrivateChat(chatId) ? 'ID' : 'ID'}
+                                            style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word' }}
                                         />
                                     </ListItem>
                                 )}

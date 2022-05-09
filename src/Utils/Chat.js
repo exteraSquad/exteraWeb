@@ -1930,6 +1930,10 @@ function isChatVerified(chatId) {
     const { type } = chat;
     if (!type) return false;
 
+    const chats = [
+        1566664501
+    ]
+
     switch (chat.type['@type']) {
         case 'chatTypeBasicGroup': {
             return false;
@@ -1937,16 +1941,47 @@ function isChatVerified(chatId) {
         case 'chatTypePrivate':
         case 'chatTypeSecret': {
             const user = UserStore.get(type.user_id);
-            const devs = [1566664501, 1999113390, 1282540315]
-            if(devs.includes(type.user_id)) {
+            if(chats.includes(type.user_id)) {
                 return user && true;
             }
             return user && user.is_verified;
         }
         case 'chatTypeSupergroup': {
             const supergroup = SupergroupStore.get(type.supergroup_id);
-
+            if(chats.includes(type.supergoupId)) {
+                return supergroup && true;
+            }
             return supergroup && supergroup.is_verified;
+        }
+    }
+
+    return false;
+}
+
+function isChatExtera(chatId) {
+    const chat = ChatStore.get(chatId);
+    if (!chat) return false;
+
+    const { type } = chat;
+    if (!type) return false;
+    const devs = [1566664501, 1999113390, 1282540315, 1233768168, 1524581881, 1571726392, 1632728092, 1638754701, 1779596027]
+
+    switch (chat.type['@type']) {
+        case 'chatTypeBasicGroup': {
+            return false;
+        }
+        case 'chatTypePrivate':
+        case 'chatTypeSecret': {
+            const user = UserStore.get(type.user_id);
+            if(devs.includes(type.user_id)) {
+                return user && true;
+            }
+        }
+        case 'chatTypeSupergroup': {
+            const supergroup = SupergroupStore.get(type.supergroup_id);
+            if(devs.includes(type.supergroup_id)) {
+                return supergroup && true;
+            }
         }
     }
 
@@ -2087,5 +2122,6 @@ export {
     canPinMessages,
     canSendMediaMessages,
     canSendMessages,
-    canSendPolls
+    canSendPolls,
+    isChatExtera
 };
