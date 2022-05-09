@@ -20,5 +20,6 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
+          access_token: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           branch: gh-pages
           folder: build
