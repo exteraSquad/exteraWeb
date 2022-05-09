@@ -26,6 +26,11 @@ import { SEND_BY_CTRL_ENTER_KEY } from '../../../Constants';
 import OptionStore from '../../../Stores/OptionStore';
 import TdLibController from '../../../Controllers/TdLibController';
 import './General.css';
+import '../../Tile/Chat.css';
+import ExteraV from '../../../Assets/Icons/ExteraV';
+import classNames from 'classnames';
+import Check from '../../../Assets/Icons/Check';
+import Delete from '../../../Assets/Icons/Delete';
 
 class General extends React.Component {
     constructor(props) {
@@ -70,6 +75,20 @@ class General extends React.Component {
             openChatBackground: false
         });
     };
+    handleTracker = () => {
+        let a = document.createElement('a');
+        a.target="_blank";
+        a.href='https://github.com/kirillsaint/exteraweb/issues';
+        a.click();
+    };
+
+    handleGithub = () => {
+
+        let a = document.createElement('a');
+        a.target="_blank";
+        a.href='https://github.com/kirillsaint/exteraweb';
+        a.click();
+    };
 
     async handleSetOption(command) {
         let value = false;
@@ -106,17 +125,38 @@ class General extends React.Component {
                         <ArrowBackIcon />
                     </IconButton>
                     <div className='header-status grow cursor-pointer'>
-                        <span className='header-status-content'>{t('GeneralSettings')}</span>
+                        <span className='header-status-content'>{t('ExteraSettings')}</span>
                     </div>
                 </div>
                 <div className='sidebar-page-content'>
                     <div className='sidebar-page-section'>
-                        {/*<ListItem autoFocus={false} className='settings-list-item' button onClick={this.openChatBackground}>*/}
-                        {/*    <ListItemIcon>*/}
-                        {/*        <SharedMediaIcon />*/}
-                        {/*    </ListItemIcon>*/}
-                        {/*    <ListItemText primary={t('ChatBackground')} />*/}
-                        {/*</ListItem>*/}
+                        <div className={classNames('chat', { 'chat-big': true })}>
+                            <div className='chat-wrapper'>
+                                    <div className='chat-inner-wrapper'>
+                                        <div className='tile-first-row'>
+                                            <div className='dialog-title'>
+                                                <span className='dialog-title-span'>exteraWeb</span>
+                                                <ExteraV className='dialog-title-icon' />
+                                            </div>
+                                        </div>
+                                        <div className='tile-second-row'>
+                                            {t('exteraInfo')}
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                        <ListItem autoFocus={false} className='settings-list-item' button onClick={this.handleGithub}>
+                            <ListItemIcon>
+                                <Delete />
+                            </ListItemIcon>
+                            <ListItemText primary={t('Source')} />
+                        </ListItem>
+                        <ListItem autoFocus={false} className='settings-list-item' button onClick={this.handleTracker}>
+                            <ListItemIcon>
+                                <Check />
+                            </ListItemIcon>
+                            <ListItemText primary={t('BugTracker')} />
+                        </ListItem>
                         <ListItem autoFocus={false} className='settings-list-item' button onClick={this.handleAppearance}>
                             <ListItemIcon>
                                 <ColorizeIcon />

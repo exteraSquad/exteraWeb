@@ -37,7 +37,7 @@ class Chat extends React.Component {
     };
 
     render() {
-        const { chatId, subtitle, onTileSelect, showStatus, showSavedMessages, big, showTitle } = this.props;
+        const { chatId, subtitle, onTileSelect, showStatus, showSavedMessages, big, showTitle, showId } = this.props;
 
         const isSavedMessages = isMeChat(chatId);
 
@@ -50,6 +50,11 @@ class Chat extends React.Component {
                             <div className='tile-first-row'>
                                 <DialogTitle chatId={chatId} showSavedMessages={showSavedMessages} />
                             </div>
+                            {showId && (
+                                <div className='tile-second-row'>
+                                    ID: {chatId}
+                                </div>
+                            )}
                             {showStatus && (!isSavedMessages || !showSavedMessages) && (
                                 <div className='tile-second-row'>
                                     <DialogStatus chatId={chatId} subtitle={subtitle} />
