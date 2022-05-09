@@ -162,16 +162,16 @@ class Code extends React.Component {
 
         switch (codeInfo.type['@type']) {
             case 'authenticationCodeTypeCall': {
-                return 'Telegram dialed your number';
+                return 'TelegramDialed';
             }
             case 'authenticationCodeTypeFlashCall': {
-                return 'Telegram dialed your number';
+                return 'TelegramDialed';
             }
             case 'authenticationCodeTypeSms': {
-                return 'We have sent you a message with activation code to your phone. Please enter it below.';
+                return 'EnterAuthSmsCode';
             }
             case 'authenticationCodeTypeTelegramMessage': {
-                return 'Please enter the code you\'ve just received in your previous Telegram app.';
+                return 'EnterAuthTgCode';
             }
         }
 
@@ -205,7 +205,7 @@ class Code extends React.Component {
                     </IconButton>
                 </div>
                 <Typography variant='body1' className='auth-subtitle' style={{ width: 300 }}>
-                    {subtitle}
+                    {t(subtitle)}
                 </Typography>
                 <TextField
                     classes={{ root: 'auth-input' }}
