@@ -143,9 +143,9 @@ class ThemePicker extends React.Component {
                             className='theme-picker-group'
                             value={type}
                             onChange={this.handleChange}>
-                            <FormControlLabel value='default' control={<Radio color='primary' />} label='System Default' />
-                            <FormControlLabel value='light' control={<Radio color='primary' />} label='Light' />
-                            <FormControlLabel value='dark' control={<Radio color='primary' />} label='Dark' />
+                            <FormControlLabel value='default' control={<Radio color='primary' />} label={t('SystemDefault')} />
+                            <FormControlLabel value='light' control={<Radio color='primary' />} label={t('Light')} />
+                            <FormControlLabel value='dark' control={<Radio color='primary' />} label={t('Dark')} />
                         </RadioGroup>
                     </FormControl>
                     <FormControl component='fieldset' className='theme-picker-form'>
@@ -168,7 +168,7 @@ class ThemePicker extends React.Component {
                                         }}
                                     />
                                 }
-                                label='Red'
+                                label={t('Red')}
                             />
                             <FormControlLabel
                                 value='orange'
@@ -180,7 +180,7 @@ class ThemePicker extends React.Component {
                                         }}
                                     />
                                 }
-                                label='Orange'
+                                label={t('Orange')}
                             />
                             <FormControlLabel
                                 value='amber'
@@ -192,7 +192,7 @@ class ThemePicker extends React.Component {
                                         }}
                                     />
                                 }
-                                label='Amber'
+                                label={t('Amber')}
                             />
                             <FormControlLabel
                                 value='green'
@@ -204,7 +204,7 @@ class ThemePicker extends React.Component {
                                         }}
                                     />
                                 }
-                                label='Green'
+                                label={t('Green')}
                             />
                             <FormControlLabel
                                 value='blue'
@@ -216,7 +216,7 @@ class ThemePicker extends React.Component {
                                         }}
                                     />
                                 }
-                                label='Blue'
+                                label={t('Blue')}
                             />
                             <FormControlLabel
                                 value='indigo'
@@ -228,7 +228,7 @@ class ThemePicker extends React.Component {
                                         }}
                                     />
                                 }
-                                label='Indigo'
+                                label={t('Indigo')}
                             />
                             <FormControlLabel
                                 value='deepPurple'
@@ -240,7 +240,7 @@ class ThemePicker extends React.Component {
                                         }}
                                     />
                                 }
-                                label='Deep Purple'
+                                label={t('DeepPurple')}
                             />
                         </RadioGroup>
                     </FormControl>
