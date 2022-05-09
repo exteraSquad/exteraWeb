@@ -33,6 +33,7 @@ import StopIcon from '../../Assets/Icons/Stop';
 import PinIcon from '../../Assets/Icons/Pin2';
 import UnpinIcon from '../../Assets/Icons/PinOff';
 import { isPublicSupergroup } from '../../Utils/Supergroup';
+import { isBasicGroup } from '../../Utils/BasicGroup';
 import { canMessageBeClosed, canMessageBeDeleted, canMessageBeEdited, canMessageBeForwarded, canMessageBeUnvoted, isEmptySelection, isMessagePinned } from '../../Utils/Message';
 import { canPinMessages, canSendMessages } from '../../Utils/Chat';
 import { cancelPollAnswer, stopPoll } from '../../Actions/Poll';
@@ -46,6 +47,7 @@ import FileStore from '../../Stores/FileStore';
 import MessageStore from '../../Stores/MessageStore';
 import TdLibController from '../../Controllers/TdLibController';
 import './MessageMenu.css';
+import ChatStore from '../../Stores/ChatStore';
 
 class MessageMenu extends React.PureComponent {
     state = {
@@ -239,7 +241,14 @@ class MessageMenu extends React.PureComponent {
         const canBeEdited = canMessageBeEdited(chatId, messageId) && !AppStore.recording && source === 'chat';
         const canBeSelected = !MessageStore.hasSelectedMessage(chatId, messageId) && !isServiceMessage(MessageStore.get(chatId, messageId));
         const canCopyLink = Boolean(copyLink);
-        const canCopyPublicMessageLink = isPublicSupergroup(chatId);
+        const chat = ChatStore.get(chatId);
+        if (!chat) return;
+
+        const { type } = chat;
+        let canCopyPublicMessageLink = false;
+        if(chat.type['@type'] == 'chatTypeSupergroup') {
+            canCopyPublicMessageLink = true
+        }
 
         const hasItems =
             canBeUnvoted || canBeClosed || canBeReplied || canBePinned || canBeForwarded || canBeDeleted || canBeEdited || canBeSelected || canCopyLink || canCopyPublicMessageLink;
