@@ -11,7 +11,7 @@
     "crypto-js": "^4.0.0",
     "emoji-mart": "^3.0.0",
     "emoji-regex": "^8.0.0",
-    "eslint": "^6.1.0",
+    "eslint": "^7.11.0",
     "i18next": "^19.3.3",
     "iframe-resizer": "^4.2.10",
     "material-ui": "^0.20.2",
