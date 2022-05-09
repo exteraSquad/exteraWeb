@@ -13,7 +13,6 @@
 .chat-wrapper {
     display: flex;
     align-items: center;
-    user-select: none;
 }
 
 .chat-big .chat-wrapper {

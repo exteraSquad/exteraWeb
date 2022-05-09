@@ -22,6 +22,7 @@ import SettingsMenuButton from './SettingsMenuButton';
 import UnmuteIcon from '../../../Assets/Icons/Unmute';
 import DataIcon from '../../../Assets/Icons/Data';
 import LanguageIcon from '../../../Assets/Icons/Language';
+import Delete from '../../../Assets/Icons/Delete';
 import packageJson from '../../../../package.json';
 import { setProfileMediaViewerContent } from '../../../Actions/Client';
 import ChatStore from '../../../Stores/ChatStore';
@@ -76,6 +77,7 @@ class Main extends React.Component {
                             showStatus={true}
                             showSavedMessages={false}
                             onTileSelect={photo ? this.handleOpenViewer : null}
+                            showId={true}
                         />
                     </div>
                     <ListItem className='settings-list-item' button onClick={onEditProfile}>
@@ -88,7 +90,7 @@ class Main extends React.Component {
                         <ListItemIcon>
                             <SettingsIcon />
                         </ListItemIcon>
-                        <ListItemText primary={t('GeneralSettings')} />
+                        <ListItemText primary={t('ExteraSettings')} />
                     </ListItem>
                     <ListItem className='settings-list-item' button onClick={onNotifications}>
                         <ListItemIcon>
