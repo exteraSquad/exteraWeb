@@ -5,7 +5,7 @@
 
 ### Детали
 
-Веб клиент для Telegram разработанный с использованием ReactJS и TDLib. Посмотреть можно [здесь](https://kirillsaint.github.io/exteraweb-build).
+Веб клиент для Telegram разработанный с использованием ReactJS и TDLib. Посмотреть можно [здесь](https://exterasquad.github.io/web).
 
 ### Запуск
 1. **Получите API ключи.**
