@@ -243,7 +243,7 @@ class Filters extends React.Component {
                         title={isSmallWidth ? t('FilterAllChats') : null}>
                         <span>{isSmallWidth ? getFirstLetter(t('FilterAllChats')) : t('FilterAllChats')}</span>
                     </div>
-                    {filters.map(x => (
+                    {filters.map((x) => (
                         <div
                             key={x.id}
                             ref={r => this.filterRef.set('chatListFilter_id=' + x.id, r)}
@@ -251,7 +251,8 @@ class Filters extends React.Component {
                             onMouseDown={e => this.handleFilterClick(e, x.id)}
                             title={isSmallWidth ? x.title : null}>
                             <span>{isSmallWidth ? getFirstLetter(x.title) : x.title}</span>
-                        </div>))}
+                        </div>
+                    ))}
                     <div ref={this.filterSelectionRef} className='filter-selection'/>
                 </div>
             </div>
