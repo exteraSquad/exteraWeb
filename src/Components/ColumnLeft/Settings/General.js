@@ -27,10 +27,13 @@ import OptionStore from '../../../Stores/OptionStore';
 import TdLibController from '../../../Controllers/TdLibController';
 import './General.css';
 import '../../Tile/Chat.css';
+import '../../Tile/ChatTile.css';
 import ExteraV from '../../../Assets/Icons/ExteraV';
 import classNames from 'classnames';
 import Check from '../../../Assets/Icons/Check';
 import Delete from '../../../Assets/Icons/Delete';
+import logo from '../../../Assets/logo.png'
+import packageJson from '../../../../package.json'
 
 class General extends React.Component {
     constructor(props) {
@@ -132,11 +135,19 @@ class General extends React.Component {
                     <div className='sidebar-page-section'>
                         <div className={classNames('chat', { 'chat-big': true })}>
                             <div className='chat-wrapper'>
+                                    <div
+                                    className={classNames(
+                                        'chat-tile',
+                                        { 'tile-big': true }
+                                    )}
+                                    style={null}>
+                                        <img className='tile-photo' src={logo} />
+                                    </div>
                                     <div className='chat-inner-wrapper'>
                                         <div className='tile-first-row'>
                                             <div className='dialog-title'>
-                                                <span className='dialog-title-span'>exteraWeb</span>
-                                                <ExteraV className='dialog-title-icon' />
+                                                <span className='dialog-title-span'>exteraWeb | v{packageJson.version}</span>
+                                                
                                             </div>
                                         </div>
                                         <div className='tile-second-row'>
