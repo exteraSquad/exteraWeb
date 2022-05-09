@@ -55,7 +55,7 @@
 }
 
 .inputbox::before {
-    --shadow-color: #84a686;
+    --shadow-color: #d9dee2;
     content: '';
     display: block;
     position: absolute;
