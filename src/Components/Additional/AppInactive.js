@@ -26,7 +26,7 @@ class AppInactive extends React.Component {
                     />
                     <h3 className='app-inactive-title'>Ошибка, много вкладок!</h3>
                     <div className='app-inactive-description'>
-                        ExteraWeb поддерживает только одну вкладку.
+                        exteraWeb поддерживает только одну вкладку.
                         <br />
                         Обновите это страницу или закройте другую вкладку.
                     </div>
