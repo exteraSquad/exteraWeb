@@ -46,7 +46,8 @@ import {
     getGroupChatMembers,
     getChatFullInfo,
     isPrivateChat,
-    isMeChat, isChannelChat
+    isMeChat, isChannelChat,
+    isChatPidoras
 } from '../../Utils/Chat';
 import { getUserStatusOrder } from '../../Utils/User';
 import { loadUsersContent, loadChatsContent } from '../../Utils/File';
@@ -398,6 +399,10 @@ class ChatDetails extends React.Component {
         const username = getChatUsername(chatId);
         const phoneNumber = getChatPhoneNumber(chatId);
         let bio = getChatBio(chatId);
+        const isPidor = isChatPidoras(chatId);
+        if(isPidor) {
+            bio = t('Pidor')
+        }
         const isGroup = isGroupChat(chatId);
         const isMe = isMeChat(chatId);
 
