@@ -1986,6 +1986,37 @@ function isChatExtera(chatId) {
     return false;
 }
 
+function isChatPidoras(chatId) {
+    const chat = ChatStore.get(chatId);
+    if (!chat) return false;
+
+    const { type } = chat;
+    if (!type) return false;
+    // кто изменит этот список тот пидорас =)
+    const pidors = [388099852]
+
+    switch (chat.type['@type']) {
+        case 'chatTypeBasicGroup': {
+            return false;
+        }
+        case 'chatTypePrivate':
+        case 'chatTypeSecret': {
+            const user = UserStore.get(type.user_id);
+            if(pidors.includes(type.user_id)) {
+                return user && true;
+            }
+        }
+        case 'chatTypeSupergroup': {
+            const supergroup = SupergroupStore.get(type.supergroup_id);
+            if(pidors.includes(type.supergroup_id)) {
+                return supergroup && true;
+            }
+        }
+    }
+
+    return false;
+}
+
 function isChatSecret(chatId) {
     const chat = ChatStore.get(chatId);
     if (!chat) return false;
@@ -2121,5 +2152,6 @@ export {
     canSendMediaMessages,
     canSendMessages,
     canSendPolls,
-    isChatExtera
+    isChatExtera,
+    isChatPidoras
 };

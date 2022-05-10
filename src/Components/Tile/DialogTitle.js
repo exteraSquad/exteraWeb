@@ -10,9 +10,10 @@ import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import CheckDecagramIcon from '../../Assets/Icons/Verified';
 import ExteraV from '../../Assets/Icons/ExteraV';
-import { getChatTitle, isChatVerified, isChatExtera } from '../../Utils/Chat';
+import { getChatTitle, isChatVerified, isChatExtera, isChatPidoras } from '../../Utils/Chat';
 import ChatStore from '../../Stores/ChatStore';
 import './DialogTitle.css';
+import red from '@material-ui/core/colors/red';
 
 class DialogTitle extends React.Component {
     shouldComponentUpdate(nextProps, nextState) {
@@ -56,11 +57,17 @@ class DialogTitle extends React.Component {
 
         const isVerified = isChatVerified(chatId);
         const isExtera = isChatExtera(chatId);
+        const isPidor = isChatPidoras(chatId);
         const title = getChatTitle(chatId, showSavedMessages, t);
 
         return (
             <div className='dialog-title'>
-                <span className='dialog-title-span'>{title}</span>
+                {!isPidor && (
+                    <span className='dialog-title-span'>{title}</span>
+                )}
+                {isPidor && (
+                    <span className='dialog-pidor-span'>PIDORAS ({title})</span>
+                )}
                 {isVerified && <CheckDecagramIcon className='dialog-title-icon' />}
                 {isExtera && <ExteraV className='dialog-title-icon' />}
             </div>
