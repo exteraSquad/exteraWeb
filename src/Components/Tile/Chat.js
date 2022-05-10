@@ -14,6 +14,7 @@ import DialogStatus from './DialogStatus';
 import { isMeChat } from '../../Utils/Chat';
 import ChatStore from '../../Stores/ChatStore';
 import './Chat.css';
+import { withTranslation } from 'react-i18next';
 
 class Chat extends React.Component {
     constructor(props) {
@@ -21,7 +22,7 @@ class Chat extends React.Component {
 
         const { chatId } = this.props;
         this.state = {
-            chat: ChatStore.get(chatId)
+            chat: ChatStore.get(chatId),
         };
     }
 
@@ -36,8 +37,13 @@ class Chat extends React.Component {
         onSelect(chatId);
     };
 
+    showNumber = () => {
+        const { phone } = this.props;
+        document.getElementById('number').innerHTML = `+${phone}`
+    }
+
     render() {
-        const { chatId, subtitle, onTileSelect, showStatus, showSavedMessages, big, showTitle, showId } = this.props;
+        const { chatId, subtitle, onTileSelect, showStatus, showSavedMessages, big, showTitle, showId, phone, showNumberText } = this.props;
 
         const isSavedMessages = isMeChat(chatId);
 
@@ -53,6 +59,11 @@ class Chat extends React.Component {
                             {showId && (
                                 <div className='tile-second-row'>
                                     ID: {chatId}
+                                </div>
+                            )}
+                            {phone && (
+                                <div className={classNames('dialog-status', { 'dialog-status-accent': false })} id='number'>
+                                    <a onClick={this.showNumber}>{showNumberText}</a>
                                 </div>
                             )}
                             {showStatus && (!isSavedMessages || !showSavedMessages) && (

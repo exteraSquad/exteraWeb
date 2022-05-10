@@ -27,6 +27,7 @@ import packageJson from '../../../../package.json';
 import { setProfileMediaViewerContent } from '../../../Actions/Client';
 import ChatStore from '../../../Stores/ChatStore';
 import './Main.css';
+import UserStore from '../../../Stores/UserStore';
 
 class Main extends React.Component {
 
@@ -58,6 +59,8 @@ class Main extends React.Component {
 
         const { photo } = chat;
 
+        let iam = UserStore.get(chatId)
+
         return (
             <>
                 <div className='header-master'>
@@ -78,6 +81,8 @@ class Main extends React.Component {
                             showSavedMessages={false}
                             onTileSelect={photo ? this.handleOpenViewer : null}
                             showId={true}
+                            phone={iam.phone_number}
+                            showNumberText={t('ShowNumber')}
                         />
                     </div>
                     <ListItem className='settings-list-item' button onClick={onEditProfile}>
